@@ -59,7 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define POWER_ON_DELAY  5
 // PID regulator
-// error input is in deciCelsius, max output is 155
+// error input is in deciCelsius, max output is 255
 // decimal numbers are allowed
 #define Kp 6   
 #define Ki 0
@@ -70,12 +70,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define PIDd_DIVIDER 10
 
-#define MAX_OUTPUT_CURRENT_mA   20
-#define MIN_OUTPUT_CURRENT_mA    0
-#define R   150
-#define Vcc   5
-#define OUT_MIN (256*MIN_OUTPUT_CURRENT_mA*R/1000/Vcc)
-#define OUT_MAX (256*MAX_OUTPUT_CURRENT_mA*R/1000/Vcc)
+#define OUT_MIN 0
+#define OUT_MAX 255
 
 
 #define LED_OFF         0
@@ -156,7 +152,7 @@ uint8_t pid(int16_t error)
 // clamp output    
     if (o<((int32_t)OUT_MIN<<20)) o=((int32_t)OUT_MIN<<20);
     else if (o>((int32_t)OUT_MAX<<20)) o=(int32_t)OUT_MAX<<20;
-    return o>>21;
+    return o>>20;
 }
 
 
