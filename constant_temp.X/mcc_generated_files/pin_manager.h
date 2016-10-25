@@ -192,57 +192,57 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define OPA1OUT_ResetPullup()   do { WPUC2 = 0; } while(0)
 #define OPA1OUT_SetAnalogMode()   do { ANSC2 = 1; } while(0)
 #define OPA1OUT_SetDigitalMode()   do { ANSC2 = 0; } while(0)
-// get/set OPA2OUT aliases
-#define OPA2OUT_TRIS               TRISC3
-#define OPA2OUT_LAT                LATC3
-#define OPA2OUT_PORT               RC3
-#define OPA2OUT_WPU                WPUC3
-#define OPA2OUT_ANS                ANSC3
-#define OPA2OUT_SetHigh()    do { LATC3 = 1; } while(0)
-#define OPA2OUT_SetLow()   do { LATC3 = 0; } while(0)
-#define OPA2OUT_Toggle()   do { LATC3 = ~LATC3; } while(0)
-#define OPA2OUT_GetValue()         RC3
-#define OPA2OUT_SetDigitalInput()    do { TRISC3 = 1; } while(0)
-#define OPA2OUT_SetDigitalOutput()   do { TRISC3 = 0; } while(0)
+// get/set IO_RC3 aliases
+#define IO_RC3_TRIS               TRISC3
+#define IO_RC3_LAT                LATC3
+#define IO_RC3_PORT               RC3
+#define IO_RC3_WPU                WPUC3
+#define IO_RC3_ANS                ANSC3
+#define IO_RC3_SetHigh()    do { LATC3 = 1; } while(0)
+#define IO_RC3_SetLow()   do { LATC3 = 0; } while(0)
+#define IO_RC3_Toggle()   do { LATC3 = ~LATC3; } while(0)
+#define IO_RC3_GetValue()         RC3
+#define IO_RC3_SetDigitalInput()    do { TRISC3 = 1; } while(0)
+#define IO_RC3_SetDigitalOutput()   do { TRISC3 = 0; } while(0)
 
-#define OPA2OUT_SetPullup()    do { WPUC3 = 1; } while(0)
-#define OPA2OUT_ResetPullup()   do { WPUC3 = 0; } while(0)
-#define OPA2OUT_SetAnalogMode()   do { ANSC3 = 1; } while(0)
-#define OPA2OUT_SetDigitalMode()   do { ANSC3 = 0; } while(0)
-// get/set OPA2INNeg aliases
-#define OPA2INNeg_TRIS               TRISC4
-#define OPA2INNeg_LAT                LATC4
-#define OPA2INNeg_PORT               RC4
-#define OPA2INNeg_WPU                WPUC4
-#define OPA2INNeg_ANS                ANSC4
-#define OPA2INNeg_SetHigh()    do { LATC4 = 1; } while(0)
-#define OPA2INNeg_SetLow()   do { LATC4 = 0; } while(0)
-#define OPA2INNeg_Toggle()   do { LATC4 = ~LATC4; } while(0)
-#define OPA2INNeg_GetValue()         RC4
-#define OPA2INNeg_SetDigitalInput()    do { TRISC4 = 1; } while(0)
-#define OPA2INNeg_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
+#define IO_RC3_SetPullup()    do { WPUC3 = 1; } while(0)
+#define IO_RC3_ResetPullup()   do { WPUC3 = 0; } while(0)
+#define IO_RC3_SetAnalogMode()   do { ANSC3 = 1; } while(0)
+#define IO_RC3_SetDigitalMode()   do { ANSC3 = 0; } while(0)
+// get/set IO_RC4 aliases
+#define IO_RC4_TRIS               TRISC4
+#define IO_RC4_LAT                LATC4
+#define IO_RC4_PORT               RC4
+#define IO_RC4_WPU                WPUC4
+#define IO_RC4_ANS                ANSC4
+#define IO_RC4_SetHigh()    do { LATC4 = 1; } while(0)
+#define IO_RC4_SetLow()   do { LATC4 = 0; } while(0)
+#define IO_RC4_Toggle()   do { LATC4 = ~LATC4; } while(0)
+#define IO_RC4_GetValue()         RC4
+#define IO_RC4_SetDigitalInput()    do { TRISC4 = 1; } while(0)
+#define IO_RC4_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
 
-#define OPA2INNeg_SetPullup()    do { WPUC4 = 1; } while(0)
-#define OPA2INNeg_ResetPullup()   do { WPUC4 = 0; } while(0)
-#define OPA2INNeg_SetAnalogMode()   do { ANSC4 = 1; } while(0)
-#define OPA2INNeg_SetDigitalMode()   do { ANSC4 = 0; } while(0)
-// get/set OPA2INPos aliases
-#define OPA2INPos_TRIS               TRISC5
-#define OPA2INPos_LAT                LATC5
-#define OPA2INPos_PORT               RC5
-#define OPA2INPos_WPU                WPUC5
-#define OPA2INPos_ANS                ANSC5
-#define OPA2INPos_SetHigh()    do { LATC5 = 1; } while(0)
-#define OPA2INPos_SetLow()   do { LATC5 = 0; } while(0)
-#define OPA2INPos_Toggle()   do { LATC5 = ~LATC5; } while(0)
-#define OPA2INPos_GetValue()         RC5
-#define OPA2INPos_SetDigitalInput()    do { TRISC5 = 1; } while(0)
-#define OPA2INPos_SetDigitalOutput()   do { TRISC5 = 0; } while(0)
+#define IO_RC4_SetPullup()    do { WPUC4 = 1; } while(0)
+#define IO_RC4_ResetPullup()   do { WPUC4 = 0; } while(0)
+#define IO_RC4_SetAnalogMode()   do { ANSC4 = 1; } while(0)
+#define IO_RC4_SetDigitalMode()   do { ANSC4 = 0; } while(0)
+// get/set nPOWER_ON aliases
+#define nPOWER_ON_TRIS               TRISC5
+#define nPOWER_ON_LAT                LATC5
+#define nPOWER_ON_PORT               RC5
+#define nPOWER_ON_WPU                WPUC5
+#define nPOWER_ON_ANS                ANSC5
+#define nPOWER_ON_SetHigh()    do { LATC5 = 1; } while(0)
+#define nPOWER_ON_SetLow()   do { LATC5 = 0; } while(0)
+#define nPOWER_ON_Toggle()   do { LATC5 = ~LATC5; } while(0)
+#define nPOWER_ON_GetValue()         RC5
+#define nPOWER_ON_SetDigitalInput()    do { TRISC5 = 1; } while(0)
+#define nPOWER_ON_SetDigitalOutput()   do { TRISC5 = 0; } while(0)
 
-#define OPA2INPos_SetPullup()    do { WPUC5 = 1; } while(0)
-#define OPA2INPos_ResetPullup()   do { WPUC5 = 0; } while(0)
-#define OPA2INPos_SetAnalogMode()   do { ANSC5 = 1; } while(0)
-#define OPA2INPos_SetDigitalMode()   do { ANSC5 = 0; } while(0)
+#define nPOWER_ON_SetPullup()    do { WPUC5 = 1; } while(0)
+#define nPOWER_ON_ResetPullup()   do { WPUC5 = 0; } while(0)
+#define nPOWER_ON_SetAnalogMode()   do { ANSC5 = 1; } while(0)
+#define nPOWER_ON_SetDigitalMode()   do { ANSC5 = 0; } while(0)
 
 /**
  * @Param

@@ -55,7 +55,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "dac.h"
 #include "eusart.h"
 #include "opa1.h"
-#include "opa2.h"
 #include "tmr0.h"
 
 #define _XTAL_FREQ  500000

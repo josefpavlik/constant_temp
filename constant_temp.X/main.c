@@ -57,6 +57,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define TEMP_RANGE_OK   50      // for led indicator, deciCelsius
 
+#define OUT_POWER_THR 5
+#define OUT_POWER_HYST 5
+#define OUT_POWER_DELAY 60
+
 // PID regulator
 // error input is in deciCelsius, max output is 155
 // decimal numbers are allowed
@@ -185,6 +189,7 @@ void main(void)
     
     uint8_t hot=0;
     uint8_t power_on_delay=POWER_ON_DELAY;
+    uint8_t out_power_delay=0;
     printf("constant_temp started\n");
     while (1) 
     {
@@ -197,22 +202,38 @@ void main(void)
         if (power_on_delay)
         {
             power_on_delay--;
+            out=0;
+        }
+        if (temperature<TEMP_FULLSPEED_OFF)
+        {
+            hot=0;
+        }
+        else if (hot || temperature>TEMP_FULLSPEED_ON)
+        {
+            hot=1;
             out=OUT_MAX;
+            out_power_delay=0;
+        }
+
+        DAC_SetOutput(out);
+        if (out_power_delay)
+        {
+            out_power_delay--;
         }
         else
         {
-            if (temperature<TEMP_FULLSPEED_OFF)
+            if (nPOWER_ON_LAT==1 && out>=OUT_POWER_THR+OUT_POWER_HYST/2)
             {
-                hot=0;
+                nPOWER_ON_SetLow();
+                out_power_delay=OUT_POWER_DELAY;
             }
-            else if (hot || temperature>TEMP_FULLSPEED_ON)
+            else if (nPOWER_ON_LAT==0 && out<=OUT_POWER_THR-OUT_POWER_HYST/2)
             {
-                hot=1;
-                out=OUT_MAX;
+                nPOWER_ON_SetHigh();
+                out_power_delay=OUT_POWER_DELAY;
             }
         }
-        DAC_SetOutput(out);
-        printf("%d,%d,%d,%ld\n", temperature, reference, out, pid_i);
+        printf("%d,%d,%d,%d,%ld\n", temperature, reference, out, nPOWER_ON_LAT?0:1, pid_i);
         led_flash=(power_on_delay)?      LED_FLASH_SHORT:
                   (error>TEMP_RANGE_OK)? LED_FLASH_SLOW:
                   (error<-TEMP_RANGE_OK)?LED_FLASH_FAST:

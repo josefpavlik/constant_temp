@@ -7,7 +7,6 @@
       <logicalFolder name="mcc_generated_files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
-        <itemPath>mcc_generated_files/opa2.h</itemPath>
         <itemPath>mcc_generated_files/opa1.h</itemPath>
         <itemPath>mcc_generated_files/eusart.h</itemPath>
         <itemPath>mcc_generated_files/dac.h</itemPath>
@@ -28,7 +27,6 @@
       <logicalFolder name="mcc_generated_files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
-        <itemPath>mcc_generated_files/opa2.c</itemPath>
         <itemPath>mcc_generated_files/opa1.c</itemPath>
         <itemPath>mcc_generated_files/eusart.c</itemPath>
         <itemPath>mcc_generated_files/dac.c</itemPath>

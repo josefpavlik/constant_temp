@@ -12,11 +12,11 @@
             <resource customName="TEMP" digital="false" direction="INPUT" function="AN4" ioc="0" module="ADC" name="RC0" start="false" type="pin" wpu="false"/>
             <resource customName="IO_RC1" digital="true" direction="OUTPUT" function="RC1" ioc="0" module="GPIO" name="RC1" start="false" type="pin" wpu="false"/>
             <resource customName="OPA1OUT" digital="false" direction="OUTPUT" function="OPA1OUT" ioc="0" module="OPA1" name="RC2" start="false" type="pin" wpu="false"/>
-            <resource customName="OPA2OUT" digital="false" direction="OUTPUT" function="OPA2OUT" ioc="0" module="OPA2" name="RC3" start="false" type="pin" wpu="false"/>
-            <resource customName="OPA2IN-" digital="false" direction="INPUT" function="OPA2IN-" ioc="0" module="OPA2" name="RC4" start="false" type="pin" wpu="false"/>
-            <resource customName="OPA2IN+" digital="false" direction="INPUT" function="OPA2IN+" ioc="0" module="OPA2" name="RC5" start="false" type="pin" wpu="false"/>
-            <file checksum="3687566911" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="1964845424" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <resource customName="IO_RC3" digital="true" direction="OUTPUT" function="RC3" ioc="0" module="GPIO" name="RC3" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RC4" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
+            <resource customName="nPOWER_ON" digital="true" direction="OUTPUT" function="RC5" ioc="0" module="GPIO" name="RC5" start="true" type="pin" wpu="false"/>
+            <file checksum="3247623724" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="2863339088" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="System" reloadPin="manual">
             <initializer comment="" name="Initialize">
@@ -53,16 +53,16 @@
             <setting name="PPS1WAY" option="ON"/>
             <setting name="BORV" option="LO"/>
             <setting name="generateConfigBits" option="true"/>
-            <file checksum="838549795" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
-            <file checksum="1734225772" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+            <file checksum="2619095690" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="2844207599" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
         </manager>
         <manager generated="true" name="Interrupt Manager" reloadPin="manual">
             <setting name="preemptHigh" option="true"/>
             <setting name="preemptLow" option="true"/>
             <setting name="useIPEN" option="false"/>
-            <interrupt module="TMR0" name="TMRI" priority="2"/>
             <file checksum="2618473506" modified="false" name="interrupt_manager.c" path="mcc_generated_files/interrupt_manager.c"/>
             <file checksum="691730193" modified="false" name="interrupt_manager.h" path="mcc_generated_files/interrupt_manager.h"/>
+            <interrupt module="TMR0" name="TMRI" priority="2"/>
         </manager>
     </managers>
     <modules>
@@ -144,22 +144,15 @@
             <file checksum="113145812" modified="false" name="opa1.c" path="mcc_generated_files/opa1.c"/>
             <file checksum="101260599" modified="false" name="opa1.h" path="mcc_generated_files/opa1.h"/>
         </module>
-        <module generated="true" mode="OPA" name="OPA2" order="4" reloadPin="manual" type="amp_opamp_hvpump">
-            <initializer comment="" name="Initialize">
-                <setting name="OPA2UG" option="OPAIN-_pin" register="OPA2CON"/>
-                <setting name="OPA2PCH" option="OPA2IN" register="OPA2CON"/>
-                <setting name="OPA2SP" option="Low_GBWP_mode" register="OPA2CON"/>
-                <setting name="OPA2EN" option="enabled" register="OPA2CON"/>
-            </initializer>
-            <file checksum="1112111160" modified="false" name="opa2.c" path="mcc_generated_files/opa2.c"/>
-            <file checksum="1034689860" modified="false" name="opa2.h" path="mcc_generated_files/opa2.h"/>
-        </module>
-        <module generated="true" mode="GPIO" name="GPIO" order="5" reloadPin="manual" type="GPIO">
+        <module generated="true" mode="GPIO" name="GPIO" order="4" reloadPin="manual" type="GPIO">
             <resource customName="SWITCH" digital="true" direction="INPUT" function="RA2" ioc="0" module="GPIO" name="RA2" start="false" type="pin" wpu="true"/>
             <resource customName="LED" digital="true" direction="OUTPUT" function="RA5" ioc="0" module="GPIO" name="RA5" start="false" type="pin" wpu="false"/>
             <resource customName="IO_RC1" digital="true" direction="OUTPUT" function="RC1" ioc="0" module="GPIO" name="RC1" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RC3" digital="true" direction="OUTPUT" function="RC3" ioc="0" module="GPIO" name="RC3" start="false" type="pin" wpu="false"/>
+            <resource customName="IO_RC4" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
+            <resource customName="nPOWER_ON" digital="true" direction="OUTPUT" function="RC5" ioc="0" module="GPIO" name="RC5" start="true" type="pin" wpu="false"/>
         </module>
-        <module generated="true" mode="Timer" name="TMR0" order="6" reloadPin="manual" type="tmr_0">
+        <module generated="true" mode="Timer" name="TMR0" order="5" reloadPin="manual" type="tmr_0">
             <initializer comment="" name="Initialize">
                 <setting name="PS" option="1:256" register="OPTION_REG"/>
                 <setting name="TMR0SE" option="Increment_hi_lo" register="OPTION_REG"/>

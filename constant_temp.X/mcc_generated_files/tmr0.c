@@ -112,6 +112,7 @@ void TMR0_ISR(void) {
     // add your TMR0 interrupt custom code
 }
 
+void periodic(void);
 void TMR0_CallBack(void) {
     // Add your custom callback code here
     // this code executes every 1 TMR0 periods

@@ -76,7 +76,6 @@ void SYSTEM_Initialize(void) {
     DAC_Initialize();
     EUSART_Initialize();
     OPA1_Initialize();
-    OPA2_Initialize();
     TMR0_Initialize();
 }
 

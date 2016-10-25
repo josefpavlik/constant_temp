@@ -54,9 +54,9 @@ void PIN_MANAGER_Initialize(void) {
     ANSELA = 0x12;
     WPUA = 0x04;
 
-    LATC = 0x00;
-    TRISC = 0x31;
-    ANSELC = 0x3D;
+    LATC = 0x20;
+    TRISC = 0x01;
+    ANSELC = 0x05;
     WPUC = 0x00;
 
     OPTION_REGbits.nWPUEN = 0x00;
