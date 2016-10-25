@@ -209,23 +209,23 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define IO_RC3_ResetPullup()   do { WPUC3 = 0; } while(0)
 #define IO_RC3_SetAnalogMode()   do { ANSC3 = 1; } while(0)
 #define IO_RC3_SetDigitalMode()   do { ANSC3 = 0; } while(0)
-// get/set IO_RC4 aliases
-#define IO_RC4_TRIS               TRISC4
-#define IO_RC4_LAT                LATC4
-#define IO_RC4_PORT               RC4
-#define IO_RC4_WPU                WPUC4
-#define IO_RC4_ANS                ANSC4
-#define IO_RC4_SetHigh()    do { LATC4 = 1; } while(0)
-#define IO_RC4_SetLow()   do { LATC4 = 0; } while(0)
-#define IO_RC4_Toggle()   do { LATC4 = ~LATC4; } while(0)
-#define IO_RC4_GetValue()         RC4
-#define IO_RC4_SetDigitalInput()    do { TRISC4 = 1; } while(0)
-#define IO_RC4_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
+// get/set CTRL_IN aliases
+#define CTRL_IN_TRIS               TRISC4
+#define CTRL_IN_LAT                LATC4
+#define CTRL_IN_PORT               RC4
+#define CTRL_IN_WPU                WPUC4
+#define CTRL_IN_ANS                ANSC4
+#define CTRL_IN_SetHigh()    do { LATC4 = 1; } while(0)
+#define CTRL_IN_SetLow()   do { LATC4 = 0; } while(0)
+#define CTRL_IN_Toggle()   do { LATC4 = ~LATC4; } while(0)
+#define CTRL_IN_GetValue()         RC4
+#define CTRL_IN_SetDigitalInput()    do { TRISC4 = 1; } while(0)
+#define CTRL_IN_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
 
-#define IO_RC4_SetPullup()    do { WPUC4 = 1; } while(0)
-#define IO_RC4_ResetPullup()   do { WPUC4 = 0; } while(0)
-#define IO_RC4_SetAnalogMode()   do { ANSC4 = 1; } while(0)
-#define IO_RC4_SetDigitalMode()   do { ANSC4 = 0; } while(0)
+#define CTRL_IN_SetPullup()    do { WPUC4 = 1; } while(0)
+#define CTRL_IN_ResetPullup()   do { WPUC4 = 0; } while(0)
+#define CTRL_IN_SetAnalogMode()   do { ANSC4 = 1; } while(0)
+#define CTRL_IN_SetDigitalMode()   do { ANSC4 = 0; } while(0)
 // get/set nPOWER_ON aliases
 #define nPOWER_ON_TRIS               TRISC5
 #define nPOWER_ON_LAT                LATC5

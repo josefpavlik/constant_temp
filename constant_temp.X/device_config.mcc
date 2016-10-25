@@ -13,10 +13,10 @@
             <resource customName="IO_RC1" digital="true" direction="OUTPUT" function="RC1" ioc="0" module="GPIO" name="RC1" start="false" type="pin" wpu="false"/>
             <resource customName="OPA1OUT" digital="false" direction="OUTPUT" function="OPA1OUT" ioc="0" module="OPA1" name="RC2" start="false" type="pin" wpu="false"/>
             <resource customName="IO_RC3" digital="true" direction="OUTPUT" function="RC3" ioc="0" module="GPIO" name="RC3" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RC4" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
+            <resource customName="CTRL_IN" digital="true" direction="INPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="true"/>
             <resource customName="nPOWER_ON" digital="true" direction="OUTPUT" function="RC5" ioc="0" module="GPIO" name="RC5" start="true" type="pin" wpu="false"/>
-            <file checksum="3247623724" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="2863339088" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="3294285358" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="1039473920" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="System" reloadPin="manual">
             <initializer comment="" name="Initialize">
@@ -149,7 +149,7 @@
             <resource customName="LED" digital="true" direction="OUTPUT" function="RA5" ioc="0" module="GPIO" name="RA5" start="false" type="pin" wpu="false"/>
             <resource customName="IO_RC1" digital="true" direction="OUTPUT" function="RC1" ioc="0" module="GPIO" name="RC1" start="false" type="pin" wpu="false"/>
             <resource customName="IO_RC3" digital="true" direction="OUTPUT" function="RC3" ioc="0" module="GPIO" name="RC3" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RC4" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
+            <resource customName="CTRL_IN" digital="true" direction="INPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="true"/>
             <resource customName="nPOWER_ON" digital="true" direction="OUTPUT" function="RC5" ioc="0" module="GPIO" name="RC5" start="true" type="pin" wpu="false"/>
         </module>
         <module generated="true" mode="Timer" name="TMR0" order="5" reloadPin="manual" type="tmr_0">

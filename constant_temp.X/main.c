@@ -46,7 +46,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "mcc_generated_files/mcc.h"
 
-#define POWER_ON_DELAY 60
+#define BOOT_DELAY 60
 // potentiometer range deciCelsius
 #define POT_TEMP_FROM   350
 #define POT_TEMP_TO     500
@@ -57,10 +57,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define TEMP_RANGE_OK   50      // for led indicator, deciCelsius
 
-#define OUT_POWER_THR 5
-#define OUT_POWER_HYST 5
-#define OUT_POWER_DELAY 60
-
+#define POWER_ON_DELAY  5
 // PID regulator
 // error input is in deciCelsius, max output is 155
 // decimal numbers are allowed
@@ -188,20 +185,35 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     
     uint8_t hot=0;
+    uint8_t boot_delay=BOOT_DELAY;
     uint8_t power_on_delay=POWER_ON_DELAY;
-    uint8_t out_power_delay=0;
+    uint8_t ctrl_in_delay=0;
     printf("constant_temp started\n");
     while (1) 
     {
         while(!new_second) /* do nothing */;
         new_second=0;
+        if (CTRL_IN_GetValue()==0)
+        {
+            nPOWER_ON_SetHigh();
+            power_on_delay=POWER_ON_DELAY;
+        }    
+        else if (power_on_delay)
+        {
+            power_on_delay--;
+        }
+        else
+        {
+            nPOWER_ON_SetLow();
+        }
+            
         int16_t temperature=convert(ad_to_temp, ADC_GetConversion(TEMP));
         int16_t reference=convert(pot_to_temp, ADC_GetConversion(POT));
         int16_t error=reference-temperature;
         uint8_t out=pid(reference-temperature);
-        if (power_on_delay)
+        if (boot_delay)
         {
-            power_on_delay--;
+            boot_delay--;
             out=0;
         }
         if (temperature<TEMP_FULLSPEED_OFF)
@@ -212,29 +224,11 @@ void main(void)
         {
             hot=1;
             out=OUT_MAX;
-            out_power_delay=0;
         }
 
         DAC_SetOutput(out);
-        if (out_power_delay)
-        {
-            out_power_delay--;
-        }
-        else
-        {
-            if (nPOWER_ON_LAT==1 && out>=OUT_POWER_THR+OUT_POWER_HYST/2)
-            {
-                nPOWER_ON_SetLow();
-                out_power_delay=OUT_POWER_DELAY;
-            }
-            else if (nPOWER_ON_LAT==0 && out<=OUT_POWER_THR-OUT_POWER_HYST/2)
-            {
-                nPOWER_ON_SetHigh();
-                out_power_delay=OUT_POWER_DELAY;
-            }
-        }
         printf("%d,%d,%d,%d,%ld\n", temperature, reference, out, nPOWER_ON_LAT?0:1, pid_i);
-        led_flash=(power_on_delay)?      LED_FLASH_SHORT:
+        led_flash=(boot_delay)?      LED_FLASH_SHORT:
                   (error>TEMP_RANGE_OK)? LED_FLASH_SLOW:
                   (error<-TEMP_RANGE_OK)?LED_FLASH_FAST:
                                          LED_ON;
